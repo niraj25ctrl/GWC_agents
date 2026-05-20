@@ -11,12 +11,12 @@ const __dirname = path.dirname(__filename);
 loadDotEnv();
 
 const config = {
-  port: Number(process.env.PORT || 8080),
+  port: Number.parseInt(process.env.PORT || "8080", 10) || 8080,
   publicBaseUrl: process.env.PUBLIC_BASE_URL || "http://localhost:8080",
   telegramToken: process.env.TELEGRAM_BOT_TOKEN || "",
   allowedTelegramUsers: parseAllowedUsers(process.env.TELEGRAM_ALLOWED_USERS || ""),
   geminiApiKey: process.env.GEMINI_API_KEY || "",
-  geminiModel: process.env.GEMINI_MODEL || "gemini-1.5-flash",
+  geminiModel: process.env.GEMINI_MODEL || "gemini-2.0-flash",
   agentTickMinutes: Number(process.env.AGENT_TICK_MINUTES || 1)
 };
 
@@ -32,12 +32,21 @@ let telegramOffset = 0;
 let telegramRunning = false;
 let agentProcessing = false;
 
+process.on("uncaughtException", (error) => {
+  console.error("uncaughtException", error);
+});
+
+process.on("unhandledRejection", (error) => {
+  console.error("unhandledRejection", error);
+});
+
 await ensureStorage();
 
 const server = createServer(async (req, res) => {
   try {
     const url = new URL(req.url || "/", `http://${req.headers.host}`);
 
+    if (url.pathname === "/health") return sendJson(res, { ok: true, service: "gwc-agents" });
     if (url.pathname === "/api/events") return handleEvents(req, res);
     if (url.pathname === "/api/state") return sendJson(res, await buildState());
     if (url.pathname === "/api/tasks" && req.method === "POST") return createTaskFromHttp(req, res);
