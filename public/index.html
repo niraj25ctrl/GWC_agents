@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Working Agents Dashboard</title>
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+  <body>
+    <main class="app">
+      <section class="topbar">
+        <div>
+          <h1>Working Agents</h1>
+          <p id="systemStatus">Connecting...</p>
+          <p class="hint">Output appears in the Review column. Click a task card to read the Result.</p>
+        </div>
+        <form id="assignForm" class="assign">
+          <select id="agentSelect" required></select>
+          <input id="taskInput" type="text" placeholder="Assign work to an agent" required>
+          <button type="submit">Assign</button>
+        </form>
+      </section>
+
+      <section class="layout">
+        <aside>
+          <h2>Agents</h2>
+          <div id="agents" class="agentList"></div>
+        </aside>
+
+        <section class="board">
+          <div class="column" data-status="queued">
+            <h2>Queued</h2>
+            <div class="tasks" id="queued"></div>
+          </div>
+          <div class="column" data-status="working">
+            <h2>Working</h2>
+            <div class="tasks" id="working"></div>
+          </div>
+          <div class="column" data-status="review">
+            <h2>Review</h2>
+            <div class="tasks" id="review"></div>
+          </div>
+          <div class="column" data-status="done">
+            <h2>Done</h2>
+            <div class="tasks" id="done"></div>
+          </div>
+          <div class="column" data-status="blocked">
+            <h2>Blocked</h2>
+            <div class="tasks" id="blocked"></div>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <dialog id="taskDialog">
+      <form method="dialog">
+        <button class="close" value="cancel">x</button>
+      </form>
+      <div id="taskDetail"></div>
+    </dialog>
+
+    <script src="/app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,79 @@
+{
+  "tasks": [
+    {
+      "id": "TASK-MPDRFC4J",
+      "agentId": "marketing",
+      "agentName": "Marketing",
+      "title": "Create a marketing post stating new watch launch",
+      "status": "review",
+      "createdBy": "dashboard",
+      "source": "dashboard",
+      "telegramChatId": null,
+      "updates": [
+        {
+          "at": "2026-05-20T07:48:13.987Z",
+          "by": "dashboard",
+          "message": "Task created"
+        },
+        {
+          "at": "2026-05-20T07:48:14.106Z",
+          "by": "Marketing",
+          "message": "Agent started work"
+        },
+        {
+          "at": "2026-05-20T07:48:14.117Z",
+          "by": "Marketing",
+          "message": "Agent completed draft and moved task to review"
+        },
+        {
+          "at": "2026-05-20T07:51:23.157Z",
+          "by": "dashboard",
+          "message": "Marked queued from dashboard"
+        },
+        {
+          "at": "2026-05-20T07:51:41.334Z",
+          "by": "Marketing",
+          "message": "Agent started work"
+        },
+        {
+          "at": "2026-05-20T07:51:41.352Z",
+          "by": "Marketing",
+          "message": "Agent completed draft and moved task to review"
+        }
+      ],
+      "result": "Gemini is not connected yet, so this is a placeholder agent output.\n\nTask understood by @Marketing: Create a marketing post stating new watch launch\n\nNext setup step: add GEMINI_API_KEY in .env to enable real agent reasoning.\n\nSuggested handoff: mention another @AgentName in the task when collaboration is needed.",
+      "createdAt": "2026-05-20T07:48:13.987Z",
+      "updatedAt": "2026-05-20T07:51:41.352Z"
+    },
+    {
+      "id": "TASK-MPDRFVGO",
+      "agentId": "marketing",
+      "agentName": "Marketing",
+      "title": "Make a new marketing post showing new launch",
+      "status": "review",
+      "createdBy": "dashboard",
+      "source": "dashboard",
+      "telegramChatId": null,
+      "updates": [
+        {
+          "at": "2026-05-20T07:48:39.048Z",
+          "by": "dashboard",
+          "message": "Task created"
+        },
+        {
+          "at": "2026-05-20T07:48:39.167Z",
+          "by": "Marketing",
+          "message": "Agent started work"
+        },
+        {
+          "at": "2026-05-20T07:48:39.178Z",
+          "by": "Marketing",
+          "message": "Agent completed draft and moved task to review"
+        }
+      ],
+      "result": "Gemini is not connected yet, so this is a placeholder agent output.\n\nTask understood by @Marketing: Make a new marketing post showing new launch\n\nNext setup step: add GEMINI_API_KEY in .env to enable real agent reasoning.\n\nSuggested handoff: mention another @AgentName in the task when collaboration is needed.",
+      "createdAt": "2026-05-20T07:48:39.048Z",
+      "updatedAt": "2026-05-20T07:48:39.178Z"
+    }
+  ]
+}
